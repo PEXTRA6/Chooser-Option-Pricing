@@ -7,7 +7,7 @@ from pandas_datareader import data as web
 
 
 START_DATE = "2018-01-01"
-END_DATE = date.today().isoformat()
+END_DATE = "2025-07-01" 
 OUTPUT_FILE = Path("week1_initial_raw_dataset.csv")
 
 
