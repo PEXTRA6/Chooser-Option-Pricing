@@ -34,8 +34,8 @@ jobs:
 
       - name: Verify Week 1 dataset
         run: |
-          test -f week1_initial_raw_dataset.csv
-          ls -lh week1_initial_raw_dataset.csv
+          test -f data/week1_initial_raw_dataset.csv
+          ls -lh data/week1_initial_raw_dataset.csv
 
       - name: Run Week 2 preprocessing notebook
         run: |
@@ -47,16 +47,16 @@ jobs:
 
       - name: Verify Week 2 dataset
         run: |
-          test -f week2_feature_dataset_pipeline.csv
-          ls -lh week2_feature_dataset_pipeline.csv
+          test -f output/week2_feature_dataset_pipeline.csv
+          ls -lh output/week2_feature_dataset_pipeline.csv
 
       - name: Upload datasets as artifacts
         uses: actions/upload-artifact@v4
         with:
           name: chooser-option-datasets
           path: |
-            week1_initial_raw_dataset.csv
-            week2_feature_dataset_pipeline.csv
+            data/week1_initial_raw_dataset.csv
+            output/week2_feature_dataset_pipeline.csv
             preprocessing_executed.ipynb
 
       - name: Commit updated datasets
@@ -64,8 +64,8 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-          git add week1_initial_raw_dataset.csv
-          git add week2_feature_dataset_pipeline.csv
+          git add data/week1_initial_raw_dataset.csv
+          git add output/week2_feature_dataset_pipeline.csv
 
           if git diff --cached --quiet; then
             echo "No dataset changes to commit."
