@@ -7,8 +7,8 @@ from pandas_datareader import data as web
 
 
 START_DATE = "2018-01-01"
-END_DATE = "2025-07-01" 
-OUTPUT_FILE = Path("week1_initial_raw_dataset.csv")
+END_DATE = "2024-12-31" 
+OUTPUT_FILE = Path("data/week1_initial_raw_dataset.csv")
 
 
 def clean_yfinance_columns(
