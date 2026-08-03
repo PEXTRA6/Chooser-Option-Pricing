@@ -5,7 +5,6 @@ on:
 
   schedule:
     - cron: "0 19 * * 1-5"
-      timezone: "America/New_York"
 
 permissions:
   contents: write
@@ -37,39 +36,47 @@ jobs:
           test -f data/week1_initial_raw_dataset.csv
           ls -lh data/week1_initial_raw_dataset.csv
 
-      - name: Run Week 2 preprocessing notebook
+      - name: Run Week 2 preprocessing pipeline
         run: |
-          jupyter nbconvert \
-            --to notebook \
-            --execute preprocessing.ipynb \
-            --output preprocessing_executed.ipynb \
-            --ExecutePreprocessor.timeout=600
+          python preprocessing.py
 
-      - name: Verify Week 2 dataset
+      - name: Verify Week 2 outputs
         run: |
           test -f output/week2_feature_dataset_pipeline.csv
           ls -lh output/week2_feature_dataset_pipeline.csv
 
-      - name: Upload datasets as artifacts
+          test -f output/week2_quality_report.csv
+          test -f output/week2_correlation_matrix.csv
+          test -f output/week2_target_correlations.csv
+          test -f output/week2_feature_importance.csv
+
+          ls -lh output/
+
+      - name: Upload pipeline outputs as artifacts
         uses: actions/upload-artifact@v4
         with:
-          name: chooser-option-datasets
+          name: chooser-option-pipeline-outputs
           path: |
             data/week1_initial_raw_dataset.csv
             output/week2_feature_dataset_pipeline.csv
-            preprocessing_executed.ipynb
+            output/week2_quality_report.csv
+            output/week2_correlation_matrix.csv
+            output/week2_target_correlations.csv
+            output/week2_feature_importance.csv
+            output/figures/*.png
+          if-no-files-found: error
 
-      - name: Commit updated datasets
+      - name: Commit updated outputs
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
           git add data/week1_initial_raw_dataset.csv
-          git add output/week2_feature_dataset_pipeline.csv
+          git add output/
 
           if git diff --cached --quiet; then
-            echo "No dataset changes to commit."
+            echo "No output changes to commit."
           else
-            git commit -m "Update automated market datasets"
+            git commit -m "Update automated market data and Week 2 outputs"
             git push
           fi
