@@ -35,3 +35,9 @@ jobs:
         with:
           name: executed-preprocessing-notebook
           path: preprocessing_executed.ipynb
+
+      - name: Upload processed CSV
+        uses: actions/upload-artifact@v4
+        with:
+          name: week2-feature-dataset
+          path: week2_feature_dataset_pipeline.csv
