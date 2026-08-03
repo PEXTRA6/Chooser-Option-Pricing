@@ -1,6 +1,10 @@
-pandas
 numpy
+pandas
 yfinance
+pandas-datareader
 matplotlib
 scikit-learn
 scipy
+jupyter
+nbconvert
+ipykernel
