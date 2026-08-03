@@ -29,11 +29,11 @@ output/week2_feature_dataset_pipeline.csv
 
 - Daily return
 - Log return
-- 20-day annualized rolling volatility
+- 5，20，60-day annualized rolling volatility
 - VIX change
-- 20-day VIX/JPM rolling correlation
+- 1，5，20-day VIX/JPM rolling correlation
 - Interest-rate change
-- Trading-volume change
+
 
 ## Project structure
 
