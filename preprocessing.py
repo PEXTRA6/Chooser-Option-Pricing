@@ -85,6 +85,12 @@ def build_week2_pipeline(input_file: str, output_file: str) -> pd.DataFrame:
 
     # Dividend
     dividend_df = load_jpm_dividend_history(df["Date"].max())
+    
+    df["Date"] = pd.to_datetime(df["Date"])
+    dividend_df["Date"] = pd.to_datetime(dividend_df["Date"])
+    
+    df["Date"] = df["Date"].astype("datetime64[ns]")
+    dividend_df["Date"] = dividend_df["Date"].astype("datetime64[ns]")
 
     df = pd.merge_asof(
         df.sort_values("Date"),
