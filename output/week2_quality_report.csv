@@ -4,7 +4,7 @@ Open,float64,0,0.0,1534
 High,float64,0,0.0,1562
 Low,float64,0,0.0,1543
 Close,float64,0,0.0,1554
-Adj Close,float64,0,0.0,1672
+Adj Close,float64,0,0.0,1671
 Volume,float64,0,0.0,1685
 VIX,float64,0,0.0,1105
 Treasury_10Y,float64,0,0.0,397
