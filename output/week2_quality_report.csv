@@ -4,13 +4,13 @@ Open,float64,0,0.0,1534
 High,float64,0,0.0,1562
 Low,float64,0,0.0,1543
 Close,float64,0,0.0,1554
-Adj Close,float64,0,0.0,1671
+Adj Close,float64,0,0.0,1672
 Volume,float64,0,0.0,1685
 VIX,float64,0,0.0,1105
 Treasury_10Y,float64,0,0.0,397
 Daily_Return,float64,0,0.0,1696
 Log_Return,float64,0,0.0,1696
-VIX_Change,float64,0,0.0,1692
+VIX_Change,float64,0,0.0,1691
 Rate_Change,float64,0,0.0,142
 Volume_Change,float64,0,0.0,1700
 Rolling_Vol_5D,float64,0,0.0,1699
@@ -19,7 +19,7 @@ Rolling_Vol_60D,float64,0,0.0,1700
 Dividend,float64,0,0.0,7
 Dividend_Growth,float64,0,0.0,7
 Market_Sentiment_Index,float64,0,0.0,1105
-VIX_Return,float64,0,0.0,1692
+VIX_Return,float64,0,0.0,1691
 VIX_JPM_Correlation_20D,float64,0,0.0,1700
 Rate_Momentum_1D,float64,0,0.0,142
 Rate_Momentum_5D,float64,0,0.0,260
